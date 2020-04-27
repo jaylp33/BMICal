@@ -1,0 +1,259 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC&display=swap');
+@import 'reset';
+
+@mixin phone() {
+    @media (max-width:500px) {
+        @content
+    }
+}
+
+
+*, *:after, *::before {
+    box-sizing: border-box;
+}
+body {
+    font-family: 'Noto Sans TC', sans-serif;
+}
+.wrap {
+    width: 80%;
+    margin: 0 auto;
+    background: #f7f7f7;
+
+
+}
+
+.header {
+    width: 100%;
+    height: 40vh;
+    background: #424242;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+
+    .logo {
+        background: url(./asset/BMICLogo.png) no-repeat;
+        height: 15vh;
+        width: 15vw;
+    }
+
+    .form {
+        display: flex;
+        flex-direction: column;
+        font-size: 18px;
+        color: #FFD366;
+
+        input {
+            width: 250px;
+            height: 40px;
+            background: rgba(255,255,255,0.18);
+            border: 2px solid #FFD366;
+            border-radius: 10px;
+            opacity: .7;
+            transition: all .5s;
+            padding-left: .5rem;
+
+            &:focus {
+                opacity: 1;
+            }
+
+            &::placeholder {
+                font-size: 20px;
+                color: rgba(255,255,255,0.50);
+                padding: .5rem;
+                font-family: 'Noto Sans TC', sans-serif;
+
+
+            }
+            
+        }
+        .error {
+            border-color: red !important;
+            position: relative;
+    
+        }
+    
+        label {
+            margin-bottom: 0.5rem;
+        }
+
+        .heightInput {
+            margin-bottom: 48px;
+        }
+    }
+
+    .result {
+        width: 120px;
+        height: 120px;
+        border-radius: 50%;
+        background-color: #FFD366;
+        margin-left: 53px;
+        font-size: 24px;
+        color: #424242;
+        cursor: pointer;
+        transition: all .5s;
+        position: relative;
+
+        &:hover {
+            transform: scale(1.2);
+            box-shadow: 0 0 10px #FFD366;
+
+            .moreResult {
+                animation: myCircle .6s infinite ease;
+            }
+        }
+
+        .moreResult {
+            position: absolute;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            right: 0;
+            bottom: 0;
+            color: white;
+            background: black;
+            transition: all 1s;
+            font-size: 14px;
+            opacity: 0;
+            
+
+            
+
+        }
+    }
+    .active {
+        background-color: transparent;
+        border: 3px solid;
+
+        &:hover {
+            box-shadow: 0 0 0 #FFD366;
+
+        }
+        .moreResult {
+            opacity: 1;
+        }
+    }
+    
+// header end
+}
+
+.content {
+    min-height: 200px;
+    margin: 0 auto;
+    text-align: center;
+
+    .recordHeader {
+        margin-top: 48px;
+        padding-bottom: 1rem;
+        font-size: 24px;
+    }
+
+    .record {
+        display: flex;
+        flex-direction: column;
+        padding-bottom: 2rem;
+    }
+
+
+
+    .recordContainer {
+        margin: 0 auto;
+        display: flex;
+        width: 60vw;
+        height: 7vh;
+        margin-top: 1rem;
+        background: #fff;
+        align-items: center;
+        justify-content: space-between;
+        border-left: 5px solid;
+        border-color: #86D73F;
+        box-shadow: 0px 0 1px 0;
+        transition: all .5s ease;
+
+        &:hover {
+            transform: scale(1.05);
+
+            i {
+                transform: scale(1.5);
+            }
+        }
+
+        div {
+            color: #4A4A4A;
+            font-size: 20px;
+            width: 25%;
+        }
+
+        span {
+            font-size: 14px;
+            color: #4A4A4A;
+            margin-right: 7px;
+        }
+
+        .bmiResult {
+            font-size: 24px;
+            margin-left: 12px;
+            width: 25%;
+            text-align: left;
+
+           
+        }
+
+        
+
+        i {
+            margin-left: 10px;
+            cursor: pointer;
+            transition: all .5s;
+
+            &:hover {
+                transform: rotate(180deg) scale(2);
+            }
+        }
+
+    }
+
+    .deleteClass {
+        height: 0;
+        overflow: hidden;
+    }
+// content end
+}
+
+.clearResult {
+    text-align: center;
+    padding: 1rem;
+    color: blue;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all .5s;
+
+    &:hover {
+        color: #4A4A4A;
+        transform: scale(1.2);
+    }
+}
+
+.footer {
+    height: 90px;
+    background: #FFD366;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    img {
+        width: 55px;
+    }
+}
+
+
+.flexCenter {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@keyframes myCircle {
+    from {transform:rotate(0deg);}
+    to {transform: rotate(-365deg);}
+}
