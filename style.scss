@@ -26,6 +26,9 @@ body {
     align-items: center;
     flex-wrap: wrap;
 
+    .mobile-logo {
+        display: none;
+    }
 
     .logo {
         background: url(./asset/BMICLogo.png) no-repeat;
@@ -238,7 +241,7 @@ body {
 
     &:hover {
         color: #4A4A4A;
-        transform: scale(1.2);
+        font-size: 1.3rem;
     }
 }
 

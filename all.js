@@ -148,8 +148,6 @@ const updateList = () => {
 
     var str = '';
 
-    console.log('update')
-
     for (const i in bmiList) {
         if (bmiList.hasOwnProperty(i)) {
             const e = bmiList[i];
@@ -157,18 +155,19 @@ const updateList = () => {
             str += `<div class="recordContainer" style="border-color:${e.color}" data-id="${e.id}">
             <span class="bmiResult">${e.result}</span>
             <div><span class="bmi">BMI</span>${e.bmi}</div>
-            <div><span class="weight">體重</span>${e.weight}</div>
-            <div><span class="height">身高</span>${e.height}</div>
+            <div><span class="weight">體重</span>${e.weight} kg</div>
+            <div><span class="height">身高</span>${e.height} m</div>
             <div><span class="date">${e.date}<i class="fas fa-times"></i></span></div>
         </div>`
         }
     }
-
     document.querySelector('.record').innerHTML = str;
-
 }
 
 $(document).on('click','.fa-times', function() {
+    var localResult = JSON.parse(localStorage.getItem('bmi')) || [];
+
+    
     $(this).parent().parent().parent().addClass('deleteClass');
     var id = $(this).parent().parent().parent().data('id');
 
@@ -183,9 +182,7 @@ $(document).on('click','.fa-times', function() {
         if(e.id == id) {
             localResult.splice(i,1)
         }
-        
     }
-
     localStorage.setItem('bmi',JSON.stringify(localResult));
 })
 
@@ -202,8 +199,8 @@ const init = () => {
         str += `<div class="recordContainer" style="border-color:${e.color}" data-id="${e.id}">
             <span class="bmiResult">${e.result}</span>
             <div><span class="bmi">BMI</span>${e.bmi}</div>
-            <div><span class="weight">體重</span>${e.weight}</div>
-            <div><span class="height">身高</span>${e.height}</div>
+            <div><span class="weight">體重</span>${e.weight} kg</div>
+            <div><span class="height">身高</span>${e.height} m</div>
             <div><span class="date">${e.date}<i class="fas fa-times"></i></span></div>
         </div>`
     }
