@@ -32,7 +32,10 @@ clearResult.addEventListener('click', e => {
     updateList();
 })
 
-btn.addEventListener('click', e => { bmiCal(height, weight); })
+btn.addEventListener('click', e => { 
+    bmiCal(height, weight); 
+
+})
 
 
 const bmiCal = (height,weight) => {
